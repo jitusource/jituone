@@ -9,7 +9,7 @@ print 'ROOT probes total:', root_total
 F3= csv.DictReader(open("ROOT_match-3.5tr_pc0.98_fracL0.5.csv"))#10466 
 shoot_unq3=[]
 f3D=[]
-for seq in F3: #[{'#Probesets': 'Mtr.2632.1.S1_at', 'Representative Public ID': 'BI311277'}]
+for seq in F3:
     probe=seq['Probe'].strip()
     shoot_unq3.append(probe)
     f3D.append(seq)
@@ -21,7 +21,7 @@ shoot_unq3=list(set(shoot_unq3))
 F4= csv.DictReader(open("ROOT_match-4_pct0.98_fracL0.5.csv"))#10466 
 shoot_unq4=[]
 f4D=[]
-for seq in F4: #[{'#Probesets': 'Mtr.2632.1.S1_at', 'Representative Public ID': 'BI311277'}]
+for seq in F4: 
     probe=seq['Probe'].strip()
     shoot_unq4.append(probe)
     f4D.append(seq)
@@ -51,7 +51,7 @@ COL=['Probe', 'Public_ID', 'Description', 'Title', 'where', 'score' ]
 top_tile=','.join(COL) + '\n'
 out.write(top_tile)
 
-for mas in master: #[{'#Probesets': 'Mtr.2632.1.S1_at', 'Representative Public ID': 'BI311277'}]
+for mas in master: 
     max_score=-1
     max_seq=None
     for seq in f3D:
@@ -81,9 +81,7 @@ for mas in master: #[{'#Probesets': 'Mtr.2632.1.S1_at', 'Representative Public I
        top_tile=','.join([str(max_seq[k]) for k in COL]) + '\n' 
        out.write(top_tile)
 
-    #if mas == 
-    #best_hits= { 'Probe': probe, 'Public_ID': pub_id, 'Title': full_title, 'Description': descript, 'Match_serial' : str(dups), 'score':  str(bit_score) } ) ###'Full_length_Duplicate_match': str(dups),  'Hit_100_pctID':str(hit_hundred)})
-                           
+          
 
 print ' DONE '
 
